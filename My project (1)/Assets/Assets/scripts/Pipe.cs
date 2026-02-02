@@ -7,7 +7,7 @@ private Gamecontroller Gamecontroller;
 
     private void Start()
     {
-        Gamecontroller = FindObjectOfType<Gamecontroller>();
+        Gamecontroller = FindFirstObjectByType<Gamecontroller>();
     }
 
     private void Update()

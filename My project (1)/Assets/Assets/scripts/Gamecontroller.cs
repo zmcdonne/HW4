@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Gamecontroller : MonoBehaviour
 {
-[SerializeField] private GameObject coinPrefab;
+[SerializeField] private GameObject PipePrefab;
 [SerializeField] private UI ui;
 
 
@@ -18,23 +18,21 @@ private void Update()
         // coin spawn
         if (spawnTimer <= 0)
         {
-            SpawnCoin();
+            SpawnPipe();
 
            
-            spawnTimer = Random.Range(1f, 10f);
+            spawnTimer = Random.Range(1f, 4f);
         }
     }
 
-    private void SpawnCoin()
+    private void SpawnPipe()
     {
-       //coin spawn right
         Camera cam = Camera.main;
         float y = cam.transform.position.y;
-        // Calculate the right edge of the screen
         float rightEdge = cam.transform.position.x + (cam.orthographicSize * cam.aspect);
         Vector3 position = new Vector3(rightEdge + 1f, y, 0f);
 
-        Instantiate(coinPrefab, position, Quaternion.identity);
+        Instantiate(PipePrefab, position, Quaternion.identity);
     }
 
    
