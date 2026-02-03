@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 [SerializeField] private float _jump = 5f;
 [SerializeField] AudioSource audioSource;
 [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip deathSound;
 
 private bool _isGrounded = true;
 
@@ -19,8 +20,17 @@ void Update()
 _rigidbody.linearVelocity = Vector2.up * _jump;
 
 audioSource.PlayOneShot(jumpSound);
-        }
-    
-}
+  }
+    }
+
+    // Called by Pipe
+    public void HitPipe()
+    {
+        // Play death sound
+        audioSource.PlayOneShot(deathSound);
+
+        // End game immediately
+        FindObjectOfType<Gamecontroller>().EndGame();
+    }
 }
 
