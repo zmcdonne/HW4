@@ -7,28 +7,30 @@ public class Gamecontroller : MonoBehaviour
 [SerializeField] private GameObject PipePrefab;
 [SerializeField] private UI ui;
 
+[SerializeField] private float _minY = -2f;
+[SerializeField] private float _maxY =2f;
 
 private float spawnTimer = 0f;
 // private int points = 0;
 private void Update()
     {
-       //timer 
+     
         spawnTimer -= Time.deltaTime;
 
-        // coin spawn
+    
         if (spawnTimer <= 0)
         {
-            SpawnPipe();
-
            
-            spawnTimer = Random.Range(1f, 4f);
+            float randomY = Random.Range(_minY,_maxY);
+             SpawnPipe(randomY);
+              spawnTimer = Random.Range(1f, 1f);
         }
     }
 
-    private void SpawnPipe()
+    private void SpawnPipe(float y)
     {
         Camera cam = Camera.main;
-        float y = cam.transform.position.y;
+        // float y = cam.transform.position.y;
         float rightEdge = cam.transform.position.x + (cam.orthographicSize * cam.aspect);
         Vector3 position = new Vector3(rightEdge + 1f, y, 0f);
 

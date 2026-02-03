@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
 [SerializeField] private Rigidbody2D _rigidbody;
 [SerializeField] private float _jump = 5f;
+[SerializeField] AudioSource audioSource;
+[SerializeField] private AudioClip jumpSound;
 
 private bool _isGrounded = true;
 
@@ -15,6 +17,8 @@ void Update()
   if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
 _rigidbody.linearVelocity = Vector2.up * _jump;
+
+audioSource.PlayOneShot(jumpSound);
         }
     
 }
