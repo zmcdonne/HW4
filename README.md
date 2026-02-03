@@ -10,5 +10,5 @@ Make sure to cite your code (name specific classes, methods, and/or variables).
 
 ## Open-Source Assets
 
-- [200 Free SFX]([https://elthen.itch.io/2d-pixel-art-seagull-sprites](https://kronbits.itch.io/freesfx]) - sound effects
+- [200 Free SFX](https://kronbits.itch.io/freesfx) - sound effects
 - [Bird Sprite](https://elthen.itch.io/2d-pixel-art-seagull-sprites) - bird sprites
