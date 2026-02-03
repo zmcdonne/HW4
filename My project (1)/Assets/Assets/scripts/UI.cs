@@ -1,28 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text pointsText;
+[SerializeField] private TMP_Text pointsText;
 
-    private void Start()
+private void Start()
     {
-        if (Gamecontroller.Instance != null)
+        if(Gamecontroller.Instance !=null)
         {
             Gamecontroller.Instance.OnScoreChange += UpdatePoints;
         }
     }
 
-    private void OnDestroy()
+private void OnDestroy()
     {
-        if (Gamecontroller.Instance != null)
+        if (Gamecontroller.Instance !=null)
         {
-            Gamecontroller.Instance.OnScoreChange -= UpdatePoints;
+            Gamecontroller.Instance.OnScoreChange -=UpdatePoints;
         }
     }
-
-    private void UpdatePoints(int points)
-    {
-        pointsText.text = points.ToString();
-    }
+public void UpdatePoints (int points)
+{
+    pointsText.text = points.ToString();
+}
 }
