@@ -8,15 +8,13 @@ public class Player : MonoBehaviour
 [SerializeField] private float _jump = 5f;
 [SerializeField] AudioSource audioSource;
 [SerializeField] private AudioClip jumpSound;
-[SerializeField] private AudioClip deathSound;
 
-private bool _isDead = false;
+private bool _isGrounded = true;
 
 
 void Update()
 {
-  if (_isDead) return;
-  if (Input.GetKeyDown(KeyCode.Space))
+  if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
 _rigidbody.linearVelocity = Vector2.up * _jump;
 
@@ -24,19 +22,5 @@ audioSource.PlayOneShot(jumpSound);
         }
     
 }
-
-    private void OnCollisionEnter2D(Collision collision)
-    {
-        if(collision.gameObject. CompareTag("Ground"))
-                {
-                        Die();
-                }
-    }
-    private void Die()
-        {
-                _isDead = true;
-                audioSource.PlayOneShot(deathSound);
-                Time.timeScale = 0f;
-        }
 }
 
