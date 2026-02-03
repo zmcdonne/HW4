@@ -12,6 +12,6 @@ Make sure to cite your code (name specific classes, methods, and/or variables).
 
 - [200 Free SFX](https://kronbits.itch.io/freesfx) - sound effects
 - [Simple Bird Sprites](https://elthen.itch.io/2d-pixel-art-seagull-sprites](https://hredbird.itch.io/simple-bird-sprites ) - bird sprites
-- - [Industrial Pipe Platformer Tileset](https://wwolf-w.itch.io/industrial-pipe-platformer-tileset) - Pip sprites
+- [Industrial Pipe Platformer Tileset](https://wwolf-w.itch.io/industrial-pipe-platformer-tileset) - Pip sprites
 
 
