@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 public class Gamecontroller : MonoBehaviour
-{
+//my locator
     public static Gamecontroller Instance;
     public event Action<int> OnScoreChange;
 [SerializeField] private GameObject PipePrefab;
