@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 public class Gamecontroller : MonoBehaviour
 {
+    public static Gamecontroller Instance;
+    public event Action<int> OnScoreChange;
 [SerializeField] private GameObject PipePrefab;
-[SerializeField] private UI ui;
+
 
 [SerializeField] private float _minY = -2f;
 [SerializeField] private float _maxY =2f;
 
 private float spawnTimer = 0f;
-// private int points = 0;
-private void Update()
+ private int points = 0;
+private void Awake() 
+    {
     {
      
         spawnTimer -= Time.deltaTime;

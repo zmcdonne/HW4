@@ -2,30 +2,23 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-public float speed = 5f;
-private Gamecontroller Gamecontroller;
-
-    private void Start()
-    {
-        Gamecontroller = FindFirstObjectByType<Gamecontroller>();
-    }
-
+    public float speed = 5f;
     private void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-   {
-      
-        if (other.tag == "Player")
+    {
+        if (other.CompareTag("Player"))
         {
-            // Gamecontroller.AddPoints();
-            Destroy(gameObject);
+            Gamecontroller.Instance.AddPoints();
+            
+
+            GetComponent<Collider2D>().enabled = false; 
         }
-        
-        if (other.tag == "Destroyer")
+
+        if (other.CompareTag("Destroyer"))
         {
             Destroy(gameObject);
         }
