@@ -3,11 +3,11 @@ using UnityEngine;
 public class Pipe : MonoBehaviour
 {
 public float speed = 5f;
-private Gamecontroller Gamecontroller;
+private Gamecontroller gameController;
 
     private void Start()
     {
-        Gamecontroller = FindFirstObjectByType<Gamecontroller>();
+       gameController = FindFirstObjectByType<Gamecontroller>();
     }
 
     private void Update()
@@ -19,13 +19,15 @@ private Gamecontroller Gamecontroller;
     private void OnTriggerEnter2D(Collider2D other)
    {
       
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            // Gamecontroller.AddPoints();
-            Destroy(gameObject);
+            if (gameController !=null)
+            {
+                gameController.EndGame();
+            }
         }
         
-        if (other.tag == "Destroyer")
+        if (other.CompareTag("Destroyer"))
         {
             Destroy(gameObject);
         }

@@ -11,10 +11,11 @@ public class Gamecontroller : MonoBehaviour
 [SerializeField] private float _maxY =2f;
 
 private float spawnTimer = 0f;
+private bool _isGameOver = false;
 // private int points = 0;
 private void Update()
     {
-     
+        if (_isGameOver) return;
         spawnTimer -= Time.deltaTime;
 
     
@@ -36,7 +37,12 @@ private void Update()
 
         Instantiate(PipePrefab, position, Quaternion.identity);
     }
-
+public void EndGame()
+    {
+        _isGameOver = true;
+        Time.timeScale = 0f; // stops the game
+   
+    }
    
 //     public void UpdatePoints (int points)
 // {
