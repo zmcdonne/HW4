@@ -9,6 +9,9 @@ Make sure to cite your code (name specific classes, methods, and/or variables).
 
 
 ## Open-Source Assets
-If you added any other assets, list them here!
-- [Brackey's Platformer Bundle](https://brackeysgames.itch.io/brackeys-platformer-bundle) - sound effects
-- [2D pixel art seagull sprites](https://elthen.itch.io/2d-pixel-art-seagull-sprites) - seagull sprites
+
+- [200 Free SFX](https://kronbits.itch.io/freesfx) - sound effects
+- [Simple Bird Sprites](https://elthen.itch.io/2d-pixel-art-seagull-sprites](https://hredbird.itch.io/simple-bird-sprites ) - bird sprites
+- [Industrial Pipe Platformer Tileset](https://wwolf-w.itch.io/industrial-pipe-platformer-tileset) - Pip sprites
+
+
