@@ -1,36 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-[SerializeField] private Rigidbody2D _rigidbody;
-[SerializeField] private float _jump = 5f;
-[SerializeField] AudioSource audioSource;
-[SerializeField] private AudioClip jumpSound;
+    public delegate void IntDelegate(int points);
+    public event IntDelegate PointsChanged;
+
+    [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private float _jump = 5f;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip deathSound;
 
-private bool _isGrounded = true;
+    private int points = 0;
+    private bool _isGrounded = true;
 
-
-void Update()
-{
-  if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
-_rigidbody.linearVelocity = Vector2.up * _jump;
-
-audioSource.PlayOneShot(jumpSound);
-  }
+            _rigidbody.linearVelocity = Vector2.up * _jump;
+            audioSource.PlayOneShot(jumpSound);
+        }
     }
 
-    // Called by Pipe
+    public void AddPoint()
+    {
+        points++;
+        PointsChanged?.Invoke(points); 
+    }
+
     public void HitPipe()
     {
-        // Play death sound
         audioSource.PlayOneShot(deathSound);
-
-        // End game immediately
-        FindObjectOfType<Gamecontroller>().EndGame();
+        Gamecontroller.Instance.EndGame();
     }
 }
-

@@ -26,9 +26,5 @@ public class Pipe : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("Destroyer"))
-        {
-            Destroy(gameObject);
-        }
     }
 }
